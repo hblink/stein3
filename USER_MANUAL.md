@@ -1,133 +1,127 @@
-# Lumière Jewellery - User Manual
+# Lumière Jewellery - How to Use This Store
 
-## For Store Owners (Admin Panel)
+## Welcome!
+This guide shows you how to use your Lumière admin panel and shop. No technical skills needed!
 
-### Getting Started
+---
 
-1. Navigate to `/admin` and log in with your admin credentials
-2. The dashboard shows your store statistics at a glance
+## For Store Owners (Your Admin Area)
 
-### Managing Products
+### Logging In
+1. Go to `yourstore.com/admin`
+2. Enter your email and password
+3. You'll see your dashboard with sales numbers
 
-**Add a New Product:**
-1. Click "Products" in the sidebar
-2. Click "Add New Product" button
-3. Fill in:
-   - Name (required)
-   - Price (in cents, e.g., 14800 for $148)
-   - Description
-   - Material (e.g., "Recycled Silver")
-   - Category
-   - Upload images
-   - Set as featured if desired
-4. Click "Create Product"
+### Adding New Jewellery
 
-**Edit an Existing Product:**
-1. Go to Products list
-2. Click the edit (pencil) icon next to any product
-3. Update fields as needed
-4. Click "Save Changes"
+**Step 1: Add a Product**
+1. Click "Products" in the left menu
+2. Click the blue "Add New Product" button
+3. Fill in these details:
+   - **Name**: What you call the piece (like "Golden Hour Necklace")
+   - **Price**: Type the dollar amount (like 148 for $148)
+   - **Description**: Tell the story of this piece
+   - **Material**: What it's made from (like "Recycled Silver")
+   - **Photo**: Click to upload beautiful images
+4. Click "Create Product" at the bottom
 
-**Delete a Product:**
-1. Go to Products list
-2. Click the trash icon
-3. Confirm deletion in the dialog
-
-### Managing Categories
-
-**Add a New Category:**
-1. Click "Categories" in the sidebar
-2. Click "Add New Category"
-3. Enter name, slug (URL-friendly name), and optional description
-4. Click "Create Category"
+**Step 2: Organise with Categories**
+1. Click "Categories" in the left menu
+2. Add names like "Necklaces" or "Bracelets" so customers can filter
+3. This helps shoppers find what they love faster
 
 ### Managing Orders
 
-**View Orders:**
-1. Click "Orders" in the sidebar
-2. Filter by status using the dropdown
-3. Click any order to see details
+**See What's Been Purchased**
+1. Click "Orders" in the left menu
+2. Each order shows: who bought it, what they ordered, and when
+3. Use the dropdown to filter by status (new orders, shipped, etc.)
 
-**Update Order Status:**
-1. Open an order
-2. Click status buttons (Confirmed → Crafting → Shipped → Delivered)
-3. Add tracking number when shipping
-4. Each status change is logged automatically
+**Update When Items Ship**
+1. Click on an order to open it
+2. Click the green "Confirmed" button when you start making the piece
+3. Click "Crafting" while you're hand-making it
+4. Click "Shipped" after you mail it (add the tracking number too)
+5. Click "Delivered" when it arrives
 
-### Customer Management
-
-1. Click "Customers" in sidebar
-2. Search by name or email
-3. View customer details and order history
-
-### Store Settings
-
-1. Click "Settings" in sidebar
-2. Update store name, contact info, and policies
-3. Click "Save Settings"
+### Understanding Your Dashboard
+- Shows how many orders you have today
+- Shows your total sales
+- Shows how many products you have
+- Shows your customer count
 
 ---
 
-## For Customers (Shopping)
+## For Customers (Shopping on Your Store)
 
-### Browsing Products
+### Finding Treasures
 
-1. Visit `/shop` to see all available pieces
-2. Use the search bar to find specific items
-3. Filter by category using the dropdown
-4. Click any product to see details
+**Browse All Pieces**
+- Go to the "Collection" section on the homepage
+- Or visit `yourstore.com/shop` to see everything
 
-### Product Details
+**Search for Something Specific**
+1. Type in the search box at the top
+2. Pick a category from the dropdown (Necklaces, Bracelets, etc.)
+3. Click any piece to see more photos and details
 
-Each product page shows:
-- Large product image
-- Name and material
-- Price (with sale comparison if applicable)
-- Description
-- Quantity selector
+### Getting a Piece
 
-### Adding to Cart
-
-1. Choose quantity using +/- buttons
+**Add to Your Bag**
+1. Choose how many you want using the + and - buttons
 2. Click "Add to Bag"
-3. View cart total updates automatically
+3. Your bag total updates automatically
 
-### Shopping Cart
-
-1. Click the cart icon or visit `/cart`
-2. Adjust quantities with +/- buttons
-3. Remove items with the trash icon
-4. Click "Proceed to Checkout" when ready
-
-### Order Flow
-
-1. From cart, click "Proceed to Checkout"
-2. Enter shipping address
-3. Select payment method
-4. Confirm order
-5. Receive order confirmation with order number
-
-### Order Status
-
-Track your order through these stages:
-1. **Order Placed** - We've received your order
-2. **Confirmed** - Your order is being prepared
-3. **Handcrafting** - Our artisans are making your piece
-4. **Shipped** - Your package is on the way
-5. **Delivered** - Your piece has arrived
+**See What's in Your Bag**
+- Click the shopping bag icon at the top right
+- Or go to `yourstore.com/cart`
+- Here you can:
+  - Change quantities with + and -
+  - Remove items with the trash can
+  - See your total
 
 ---
 
-## Accessibility Features
+## Checking Your Past Orders
 
-- Large tap targets (minimum 44px) for easy clicking
-- Clear visual feedback on interactions
-- Confirmation dialogs before deleting items
-- Keyboard navigable forms
-- Screen reader friendly labels
+Want to see what you've ordered before?
+1. Log in to your account at `yourstore.com/login`
+2. Click "Your Orders" in the menu or go to `yourstore.com/orders`
+3. See all your past purchases with their status
 
 ---
 
-## Support
+## Order Status - What Each Stage Means
 
-For technical support, contact your system administrator.
+When you place an order, here's what happens:
+
+1. **Order Placed** ✓ - We got your order! Check your email for confirmation.
+
+2. **Confirmed** ✓ - We're preparing materials for your special piece.
+
+3. **Handcrafting** ✓ - Our artisans are lovingly making your jewellery by hand.
+
+4. **Shipped** ✓ - Your package is on its way! You'll get tracking info.
+
+5. **Delivered** ✓ - Your handcrafted piece has arrived. Time to wear it!
+
+---
+
+## Easy-to-Use Features
+
+- **Large buttons** - Easy to tap on phones or computers
+- **Clear feedback** - Buttons light up when you can click them
+- **Safety checks** - You'll be asked "Are you sure?" before deleting anything
+- **Works with keyboards** - Navigate without a mouse if you need to
+- **Screen reader friendly** - Works with assistive technology
+
+---
+
+## Need Help?
+
+Contact your technical person for:
+- Login issues
+- Website not loading
+- Payment problems
+
+**Remember**: Your customers can shop and add items to their bags right now. The checkout page (where they pay) is coming soon!

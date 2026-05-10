@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { createClient } from "@/lib/supabase-client";
 import { loginSchema, type LoginFormData } from "@/lib/validation";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import { Eye, EyeOff, ArrowRight } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams.get("redirect") || "/orders";
@@ -142,5 +142,13 @@ export default function LoginPage() {
         </p>
       </div>
     </main>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-charcoal flex items-center justify-center"><div className="text-cream">Loading...</div></div>}>
+      <LoginForm />
+    </Suspense>
   );
 }

@@ -54,6 +54,7 @@ src/
 │   ├── shop/            # Customer product listing
 │   ├── product/[slug]/  # Product detail pages
 │   ├── cart/            # Shopping cart
+│   ├── orders/          # Order history
 │   ├── login/           # Login page
 │   ├── signup/          # Signup page
 │   └── page.tsx         # Home page

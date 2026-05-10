@@ -41,6 +41,7 @@ Building a full-stack commercial e-commerce application for Lumière handmade je
 | `src/app/shop/page.tsx` | Customer product listing | ✅ Ready |
 | `src/app/product/[slug]/page.tsx` | Product detail page | ✅ Ready |
 | `src/app/cart/page.tsx` | Shopping cart | ✅ Ready |
+| `src/app/orders/page.tsx` | Customer order history | ✅ Ready |
 
 ## Next Steps
 
@@ -52,8 +53,8 @@ Building a full-stack commercial e-commerce application for Lumière handmade je
 
 | Date | Changes |
 |------|---------|
+| 2026-05-10 | Fixed login page build error: wrapped useSearchParams in Suspense boundary |
 | 2026-05-10 | Created complete admin panel: products, categories, orders, customers, settings pages |
 | 2026-05-10 | Added customer shop listing, product detail page, and shopping cart pages |
 | 2026-05-10 | Updated README.md with new routes, created USER_MANUAL.md documentation |
-| 2026-05-10 | Fixed build error: converted orders page to client component |
 | 2026-05-10 | Fixed deployment: added null checks for supabase client and dynamic flags
