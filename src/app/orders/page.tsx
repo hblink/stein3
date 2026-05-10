@@ -8,6 +8,8 @@ import { StatusBadge } from "@/components/ui/StatusBadge";
 import { STATUS_LABELS, STATUS_DESCRIPTIONS } from "@/lib/types";
 import type { Order } from "@/lib/types";
 
+export const dynamic = "force-dynamic";
+
 export default function OrdersPage() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
@@ -16,6 +18,10 @@ export default function OrdersPage() {
     (async () => {
       try {
         const supabase = createClient();
+        if (!supabase) {
+          setLoading(false);
+          return;
+        }
         const { data } = await supabase
           .from("orders")
           .select("*")

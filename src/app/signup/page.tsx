@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff, ArrowRight } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default function SignupPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
@@ -31,6 +33,11 @@ export default function SignupPage() {
 
     setLoading(true);
     const supabase = createClient();
+    if (!supabase) {
+      setError("Unable to connect to authentication service");
+      setLoading(false);
+      return;
+    }
     const { error: authError } = await supabase.auth.signUp({
       email: form.email,
       password: form.password,
