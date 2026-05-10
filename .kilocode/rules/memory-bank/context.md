@@ -1,64 +1,52 @@
-# Active Context: Next.js Starter Template
+# Active Context: Lumière E-commerce Platform
 
 ## Current State
 
-**Template Status**: ✅ Ready for development
+**Project Status**: 🚧 In Progress - Admin Panel Complete
 
-The template is a Lumière handmade jewellery brand site with Next.js 16, TypeScript, and Tailwind CSS 4. It now includes a customer-facing order history page integrated with Supabase.
+Building a full-stack commercial e-commerce application for Lumière handmade jewellery brand with customer-facing features and admin panel designed for non-technical users.
 
 ## Recently Completed
 
-- [x] Base Next.js 16 setup with App Router
-- [x] TypeScript configuration with strict mode
-- [x] Tailwind CSS 4 integration
-- [x] ESLint configuration
-- [x] Memory bank documentation
-- [x] Recipe system for common features
-- [x] Customer-facing order history page with Supabase integration
-- [x] Order status tracker component (pending → confirmed → crafting → shipped → delivered)
-- [x] Order list with filter by status
-- [x] Estimated delivery dates and delivered-at display
-- [x] "Orders" link added to main navigation
+- [x] Supabase client libraries installed (@supabase/ssr, zod, lucide-react, sonner)
+- [x] Database migration SQL with tables: profiles, categories, products, orders, order_status_history, settings, audit_logs (with RLS policies)
+- [x] Core lib files: supabase-client.ts, supabase-server.ts, types.ts, validation.ts, utils.ts, cart-context.tsx
+- [x] Auth middleware and callback route
+- [x] Login and signup pages with accessible forms
+- [x] Admin UI components: Button, Input, Modal, StatusBadge, ImageUpload
+- [x] Admin layout with Sidebar (large navigation links, glass styling)
+- [x] Admin dashboard page with stats cards and recent orders table
+- [x] **Admin Products**: List, New, Edit pages with full CRUD
+- [x] **Admin Categories**: List, New, Edit pages with full CRUD
+- [x] **Admin Orders**: List page with status filtering, Order detail page with status update and tracking
+- [x] **Admin Customers**: List page with search
+- [x] **Admin Settings**: Store configuration form
+
+## Current Focus
+
+Customer-facing product pages and shopping cart integration are next.
 
 ## Current Structure
 
 | File/Directory | Purpose | Status |
 |----------------|---------|--------|
-| `src/app/page.tsx` | Home page | ✅ Ready |
-| `src/app/layout.tsx` | Root layout | ✅ Ready |
-| `src/app/globals.css` | Global styles | ✅ Ready |
-| `src/app/orders/page.tsx` | Order history page | ✅ Ready |
-| `src/components/orders/` | Order components | ✅ Ready |
-| `src/lib/supabase.ts` | Supabase client | ✅ Ready |
-| `src/lib/types.ts` | Order types & status definitions | ✅ Ready |
-| `.kilocode/` | AI context & recipes | ✅ Ready |
+| `src/app/admin/layout.tsx` | Admin layout with sidebar | ✅ Ready |
+| `src/app/admin/page.tsx` | Dashboard with stats | ✅ Ready |
+| `src/app/admin/products/` | Products CRUD pages | ✅ Ready |
+| `src/app/admin/categories/` | Categories CRUD pages | ✅ Ready |
+| `src/app/admin/orders/` | Orders management | ✅ Ready |
+| `src/app/admin/customers/` | Customer list | ✅ Ready |
+| `src/app/admin/settings/` | Store settings | ✅ Ready |
 
-## Supabase Setup
+## Next Steps
 
-The orders page requires a `orders` table in Supabase with columns:
-- `id` (uuid, primary key)
-- `order_number` (text)
-- `status` (text: pending|confirmed|crafting|shipped|delivered)
-- `items` (jsonb: array of {name, quantity, price, material, image_url?})
-- `total` (numeric)
-- `created_at` (timestamptz)
-- `estimated_delivery` (timestamptz)
-- `delivered_at` (timestamptz, nullable)
-- `customer_id` (text)
-- `tracking_number` (text, nullable)
-- `shipping_address` (text)
-
-Environment variables needed: `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-
-## Available Recipes
-
-| Recipe | File | Use Case |
-|--------|------|----------|
-| Add Database | `.kilocode/recipes/add-database.md` | Data persistence with Drizzle + SQLite |
+- [ ] Customer product listing page
+- [ ] Customer product detail page
+- [ ] Shopping cart integration
+- [ ] Checkout flow
 
 ## Session History
 
 | Date | Changes |
 |------|---------|
-| Initial | Template created with base setup |
-| 2026-05-10 | Added order history page with Supabase integration, status tracking, and delivery dates |
+| 2026-05-10 | Created complete admin panel: products, categories, orders, customers, settings pages |

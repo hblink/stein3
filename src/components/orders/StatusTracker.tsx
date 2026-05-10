@@ -9,7 +9,7 @@ import {
 
 interface StatusTrackerProps {
   currentStatus: OrderStatus;
-  estimatedDelivery: string;
+  estimatedDelivery: string | null;
   deliveredAt: string | null;
 }
 
@@ -106,7 +106,7 @@ export function StatusTracker({
               })}
             </span>
           </span>
-        ) : (
+        ) : estimatedDelivery ? (
           <span>
             Estimated delivery{" "}
             <span className="text-gold">
@@ -117,6 +117,8 @@ export function StatusTracker({
               })}
             </span>
           </span>
+        ) : (
+          <span>Estimating delivery date...</span>
         )}
       </div>
     </div>

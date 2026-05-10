@@ -17,6 +17,7 @@ const STATUS_COLORS: Record<
   crafting: { bg: "bg-terracotta/10", text: "text-terracotta-light", dot: "bg-terracotta" },
   shipped: { bg: "bg-gold/10", text: "text-gold-light", dot: "bg-gold-light" },
   delivered: { bg: "bg-sage/10", text: "text-sage", dot: "bg-sage" },
+  cancelled: { bg: "bg-cream/5", text: "text-cream/40", dot: "bg-cream/30" },
 };
 
 export function OrderCard({ order }: OrderCardProps) {
@@ -117,7 +118,7 @@ export function OrderCard({ order }: OrderCardProps) {
           <div className="border-t border-cream/10 pt-6">
             <StatusTracker
               currentStatus={order.status}
-              estimatedDelivery={order.estimated_delivery}
+              estimatedDelivery={order.estimated_delivery ?? ""}
               deliveredAt={order.delivered_at}
             />
 
