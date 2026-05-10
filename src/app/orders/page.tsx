@@ -1,35 +1,45 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { supabase } from "@/lib/supabase";
-import { OrderList } from "@/components/orders/OrderList";
+import { createClient } from "@/lib/supabase-client";
+import { formatPrice } from "@/lib/utils";
+import { StatusBadge } from "@/components/ui/StatusBadge";
+import { STATUS_LABELS, STATUS_DESCRIPTIONS } from "@/lib/types";
+import type { Order } from "@/lib/types";
 
-export const dynamic = "force-dynamic";
+export default function OrdersPage() {
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [loading, setLoading] = useState(true);
 
-async function getOrders() {
-  const { data, error } = await supabase
-    .from("orders")
-    .select("*")
-    .order("created_at", { ascending: false });
+  useEffect(() => {
+    (async () => {
+      try {
+        const supabase = createClient();
+        const { data } = await supabase
+          .from("orders")
+          .select("*")
+          .order("created_at", { ascending: false });
+        setOrders((data as Order[]) || []);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, []);
 
-  if (error) {
-    console.error("Failed to fetch orders:", error.message);
-    return [];
+  if (loading) {
+    return (
+      <div className="bg-charcoal min-h-screen flex items-center justify-center">
+        <div className="text-cream/40 font-body">Loading your orders...</div>
+      </div>
+    );
   }
 
-  return data;
-}
-
-export default async function OrdersPage() {
-  const orders = await getOrders();
-
   return (
-    <main className="min-h-screen bg-charcoal">
-      <div className="absolute inset-0 z-0">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-gold/3 blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-sage/3 blur-[120px]" />
-      </div>
-      <div className="absolute inset-0 grain-overlay" />
-
-      <div className="relative z-10 max-w-4xl mx-auto px-6 py-12">
+    <div className="bg-charcoal min-h-screen">
+      <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="mb-12">
           <Link
             href="/"
@@ -48,28 +58,12 @@ export default async function OrdersPage() {
             Back to Home
           </Link>
 
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-10 rounded-full border border-gold/40 flex items-center justify-center">
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                className="text-gold"
-              >
-                <path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2" />
-                <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
-              </svg>
-            </div>
-            <h1
-              className="text-4xl md:text-5xl font-display text-cream"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Your Orders
-            </h1>
-          </div>
+          <h1
+            className="text-4xl md:text-5xl font-display text-cream mb-4"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            Your Orders
+          </h1>
 
           <p className="text-cream/50 font-body max-w-lg">
             Track your handcrafted pieces from our studio to your doorstep. Every
@@ -78,7 +72,7 @@ export default async function OrdersPage() {
         </div>
 
         {orders.length === 0 ? (
-          <div className="text-center py-24">
+          <div className="text-center py-24 glass rounded-3xl">
             <div className="w-24 h-24 rounded-full bg-cream/5 flex items-center justify-center mx-auto mb-8">
               <svg
                 width="40"
@@ -110,9 +104,38 @@ export default async function OrdersPage() {
             </Link>
           </div>
         ) : (
-          <OrderList orders={orders} />
+          <div className="space-y-6">
+            {orders.map((order) => (
+              <div key={order.id} className="glass rounded-3xl p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <p className="text-cream/40 text-sm font-body">Order #{order.order_number}</p>
+                    <p className="text-cream/60 text-sm font-body">
+                      {new Date(order.created_at).toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </p>
+                  </div>
+                  <StatusBadge status={order.status} />
+                </div>
+
+                <p className="text-cream/80 font-body mb-2">
+                  {STATUS_DESCRIPTIONS[order.status as keyof typeof STATUS_DESCRIPTIONS]}
+                </p>
+
+                <div className="flex items-center justify-between pt-4 border-t border-cream/10">
+                  <span className="text-cream/40 text-sm font-body">{order.items?.length || 0} items</span>
+                  <span className="text-lg font-display text-gold" style={{ fontFamily: "var(--font-display)" }}>
+                    {formatPrice(order.total)}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         )}
       </div>
-    </main>
+    </div>
   );
 }
