@@ -1,106 +1,77 @@
-# Next.js Starter Template
+# Lumière Jewellery
 
-A minimal Next.js starter template designed for AI-assisted development. Provides a clean foundation that can be extended to build any type of web application.
+A beautiful online store for handmade sustainable jewellery. Built with care for both customers and store owners.
+
+## What is this?
+
+This is the Lumière e-commerce platform - a complete online shop where customers can browse and purchase handmade necklaces, bracelets, earrings, and rings. The admin panel (for store owners) lets you easily add new products, manage orders, and track customer purchases.
 
 ## Tech Stack
 
-| Technology   | Version | Purpose                         |
-| ------------ | ------- | ------------------------------- |
-| Next.js      | 16.x    | React framework with App Router |
-| React        | 19.x    | UI library                      |
-| TypeScript   | 5.9.x   | Type-safe JavaScript            |
-| Tailwind CSS | 4.x     | Utility-first CSS               |
-| Bun          | Latest  | Package manager & runtime       |
+| Technology   | Version | Purpose                |
+| ------------ | ------- | -------------------- |
+| Next.js      | 16.x    | React framework        |
+| React        | 19.x    | UI library           |
+| TypeScript   | 5.x     | Type-safe JavaScript   |
+| Tailwind CSS | 4.x     | Styling                |
+| Bun          | Latest  | Package manager        |
+| Supabase     | Latest  | Database & Auth        |
 
-## Prerequisites
+## Getting Started
 
-- [Bun](https://bun.sh) installed (`curl -fsSL https://bun.sh/install | bash`)
-- Node.js 20+
-
-## Setup
-
+### 1. Install dependencies
 ```bash
 bun install
+```
+
+### 2. Set up environment variables
+Create a `.env.local` file with:
+```
+NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-supabase-anon-key
+```
+
+### 3. Run the development server
+```bash
 bun dev
 ```
 
-The dev server starts at [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Scripts
+## Available Commands
 
-| Command            | Purpose                      |
-| ------------------ | ---------------------------- |
-| `bun install`      | Install dependencies         |
-| `bun dev`          | Start dev server             |
-| `bun build`        | Production build             |
-| `bun start`        | Start production server      |
-| `bun lint`         | Run ESLint                   |
-| `bun typecheck`    | Run TypeScript type checking |
+- `bun dev` - Start development server
+- `bun build` - Build for production  
+- `bun lint` - Check code quality
+- `bun typecheck` - Run TypeScript checks
 
 ## Project Structure
 
 ```
 src/
 ├── app/
-│   ├── layout.tsx      # Root layout + metadata
-│   ├── page.tsx        # Home page
-│   ├── globals.css     # Tailwind imports + global styles
-│   └── favicon.ico     # Site icon
-└── (expand as needed)
-    ├── components/     # React components
-    ├── lib/            # Utilities and helpers
-    └── db/             # Database files (add via recipe)
+│   ├── admin/           # Admin panel (products, orders, customers)
+│   ├── shop/            # Customer product listing
+│   ├── product/[slug]/  # Product detail pages
+│   ├── cart/            # Shopping cart
+│   ├── login/           # Login page
+│   ├── signup/          # Signup page
+│   └── page.tsx         # Home page
+├── components/
+│   ├── ui/             # Reusable components
+│   └── admin/          # Admin-specific components
+├── lib/
+│   ├── supabase.ts     # Supabase client
+│   ├── types.ts        # TypeScript types
+│   └── validation.ts   # Form validation
+└── styles/
+    └── globals.css     # Global styles
 ```
-
-## Adding Features
-
-### New Page
-
-Create a file at `src/app/[route]/page.tsx`:
-
-```tsx
-export default function NewPage() {
-  return <div>New page content</div>;
-}
-```
-
-### New Component
-
-```tsx
-export function Button({ children }: { children: React.ReactNode }) {
-  return <button className="px-4 py-2 bg-blue-600 text-white rounded">{children}</button>;
-}
-```
-
-### API Route
-
-Create `src/app/api/[route]/route.ts`:
-
-```tsx
-import { NextResponse } from "next/server";
-
-export async function GET() {
-  return NextResponse.json({ message: "Hello" });
-}
-```
-
-### Database
-
-Follow `.kilocode/recipes/add-database.md` to add Drizzle + SQLite.
-
-## Conventions
-
-- **Server Components by default** — add `"use client"` only when needed
-- **Styling** — Tailwind utility classes directly on elements
-- **Path aliases** — `@/*` maps to `src/*`
-- **File naming** — Components: PascalCase, utilities: camelCase, pages: lowercase
-- **Environment variables** — use `.env.local` for local development
 
 ## Deployment
 
+Deploy easily to Vercel or any platform that supports Next.js.
+
 ```bash
 bun build
-bun start
 ```
-
-Supports server-rendered pages by default. Can be configured for static export in `next.config.ts`.
