@@ -24,6 +24,8 @@ Building a full-stack commercial e-commerce application for Lumière handmade je
 - [x] **Customer Shop**: Product listing page with search and category filtering
 - [x] **Customer Product Detail**: Dynamic product page with image, description, and add-to-cart
 - [x] **Customer Cart**: Shopping cart page with quantity controls and checkout flow
+- [x] **README.md**: Project documentation updated with all routes
+- [x] **USER_MANUAL.md**: Complete user guide for store owners and customers
 
 ## Current Structure
 
@@ -52,3 +54,4 @@ Building a full-stack commercial e-commerce application for Lumière handmade je
 |------|---------|
 | 2026-05-10 | Created complete admin panel: products, categories, orders, customers, settings pages |
 | 2026-05-10 | Added customer shop listing, product detail page, and shopping cart pages |
+| 2026-05-10 | Updated README.md with new routes, created USER_MANUAL.md documentation |
