@@ -55,3 +55,4 @@ Building a full-stack commercial e-commerce application for Lumière handmade je
 | 2026-05-10 | Created complete admin panel: products, categories, orders, customers, settings pages |
 | 2026-05-10 | Added customer shop listing, product detail page, and shopping cart pages |
 | 2026-05-10 | Updated README.md with new routes, created USER_MANUAL.md documentation |
+| 2026-05-10 | Fixed build error: converted orders page to client component |
