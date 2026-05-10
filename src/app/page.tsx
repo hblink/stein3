@@ -28,6 +28,7 @@ const NAV_LINKS = [
   { label: "Design Yours", href: "#design" },
   { label: "Our Story", href: "#story" },
   { label: "Sustainability", href: "#sustainability" },
+  { label: "Orders", href: "/orders" },
 ];
 
 const NECKLACES = [
